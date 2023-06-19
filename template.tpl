@@ -74,7 +74,7 @@ switch(data.EventAction)
 
       if(wtbClick != null)
       {
-        log("Setting cookie called 'wtbclickref' with value '"+wtbClick+"'");
+        log("[CA GTM] Setting cookie called 'wtbclickref' with value '"+wtbClick+"'");
         const options = {
           'max-age': 2592000 * 1000,
           'path', '/',
@@ -82,7 +82,7 @@ switch(data.EventAction)
         setCookie("wtbclickref", wtbClick, options);
       }
       else
-        log("URL did not contain a click ref");
+        log("[CA GTM] URL did not contain a click ref");
     
     
     break;
@@ -96,10 +96,10 @@ switch(data.EventAction)
       var clickref = getCookieValues("wtbclickref");
     	
       if(clickref != "") {
-          log("Clickref found: " + clickref);
+          log("[CA GTM] Clickref found: " + clickref);
       } else {
           validationErrors += "2,";
-          log("Unable to find 'wtbclickref' cookie.");
+          log("[CA GTM] Unable to find 'wtbclickref' cookie.");
       }
     
       const copyDL = require('copyFromDataLayer');
@@ -123,7 +123,7 @@ switch(data.EventAction)
     	
       //--- Set Products Start ---
       const productdata = copyDL("products");
-      log('Products =', productdata);
+      log('[CA GTM] Products =', productdata);
     	
       if(productdata != null && productdata.length != 0)
         {        
@@ -146,14 +146,14 @@ switch(data.EventAction)
           }
           else{
             validationErrors += "1,";
-            log("Product data could not be found in the data layer. Unable to send request to strack."); 
+            log("[CA GTM] Product data could not be found in the data layer. Unable to send request to strack."); 
           }
        	  //--- Set Products End ---
           
           const sendPixel = require('sendPixel'); //sends a get request
          
           var url = 'https://strack.where-to-buy.co/api/v1/gtm/recordSale/' + requestInformation + "&s.at="+accessToken;
-          log("Sending GET request to - " + url); 
+          log("[CA GTM] Sending GET request to - " + url); 
           sendPixel(url);
     
     break;
