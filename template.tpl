@@ -77,7 +77,7 @@ switch(data.EventAction)
         log("[CA GTM] Setting cookie called 'wtbclickref' with value '"+wtbClick+"'");
         const options = {
           'max-age': 2592000 * 1000,
-          'path', '/',
+          'path': '/',
         };
         setCookie("wtbclickref", wtbClick, options);
       }
