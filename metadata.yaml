@@ -2,9 +2,11 @@ homepage: "https://www.channeladvisor.com/"
 documentation: "https://github.com/channeladvisor/channeladvisor-wtb-gtm-template/blob/master/README.md"
 versions:
   # Latest Version
+  - sha: 22804aca7a0e59dc7bf1c5a247333fc61f99199e
+    changeNotes: fix cookie Path typo
+  # Older Versions
   - sha: 4aca81c01b8cc99ca90d43a85ec5ad85103e8376
     changeNotes: Update Logging labelling
-  # Older Versions
   - sha: 787f58ede89779f625cae2dc774c296ebd85c1f5
     changeNotes: add Path to cookie save
   - sha: 2138c187be926fe3e85ceec35ca105888fae554d
